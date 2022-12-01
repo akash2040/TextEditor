@@ -32,8 +32,8 @@ module.exports = () => {
         name: "TextEditor",
         description: "PWA",
         short_name: "editor",
-        background_color: "#ffffff",
-        theme_color: "#FFC300",
+        background_color: "#7eb4e2",
+        theme_color: "#7eb4e2",
         start_url: "./",
         publicPath: "./",
         icons: {
@@ -45,7 +45,22 @@ module.exports = () => {
     ],
 
     module: {
-      rules: [],
+      rules: [
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            option: {
+              presets: ["@babel/preset-env"],
+              plugins: [
+                "@babel/plugin-proposal-object-rest-spread",
+                "@bebel/transform-runtime",
+              ],
+            },
+          },
+        },
+      ],
     },
   };
 };

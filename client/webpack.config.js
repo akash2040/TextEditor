@@ -22,12 +22,12 @@ module.exports = () => {
         template: "./index.html",
         title: "JATE",
       }),
-      // added InjectManifest
+
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: "src-sw.js",
       }),
-      // added manifest.json
+
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
